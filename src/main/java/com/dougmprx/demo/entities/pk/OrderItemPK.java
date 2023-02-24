@@ -17,10 +17,11 @@ public class OrderItemPK implements Serializable {
 	@ManyToOne
 	@JoinColumn(name = "order_id")
 	private Order order;
-	private Product product;
 	
 	@ManyToOne
 	@JoinColumn(name = "product_id")
+	private Product product;
+	
 	public Order getOrder() {
 		return order;
 	}
@@ -33,10 +34,12 @@ public class OrderItemPK implements Serializable {
 	public void setProduct(Product product) {
 		this.product = product;
 	}
+	
 	@Override
 	public int hashCode() {
 		return Objects.hash(order, product);
 	}
+	
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
